@@ -1,8 +1,22 @@
 <script setup>
-import {ref} from 'vue'
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
-const active = ref(0)
+import {ref, watch} from 'vue'
+import { RouterLink, RouterView, useRoute } from "vue-router";
+const active = ref()
+const route = useRoute()
+watch(route, () => {
+  console.log(route.name);
+  switch (route.name) {
+    case 'home':
+      active.value = 0
+      break;
+    case 'record':
+      active.value = 1
+      break;
+    case 'manager':
+      active.value = 2
+      break;
+  }
+})
 </script>
 
 <template>

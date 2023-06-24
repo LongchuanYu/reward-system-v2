@@ -20,10 +20,12 @@ const router = createRouter({
     {
       path: '/manager',
       name: 'manager',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/Manager.vue')
+    },
+    {
+      path: '/manager-edit',
+      name: 'manager-edit',
+      component: () => import('../views/ManagerEdit.vue')
     }
   ]
 })
