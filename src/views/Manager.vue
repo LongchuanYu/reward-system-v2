@@ -1,5 +1,8 @@
 <script setup>
 import {ref} from 'vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 const records = ref([
   {
     name: '倒垃圾戳粑粑',
@@ -14,12 +17,17 @@ const records = ref([
 ])
 
 function gotoEdit() {
-  console.log('gotoEdit')
+  router.push({name: 'manager-edit', query: {mode: 'edit'}})
+}
+
+function create() {
+  router.push({name: 'manager-edit', query: {mode: 'create'}})
 }
 </script>
 
 <template>
   <div>
+    <van-nav-bar title="管理" style="margin-bottom: 1rem" right-text="新增" @click-right="create"/>
     <van-list>
       <van-row v-for="(item, index) in records" :key="index" @click="gotoEdit(item)">
         <van-col span="2" justify="center">

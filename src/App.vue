@@ -4,7 +4,6 @@ import { RouterLink, RouterView, useRoute } from "vue-router";
 const active = ref()
 const route = useRoute()
 watch(route, () => {
-  console.log(route.name);
   switch (route.name) {
     case 'home':
       active.value = 0
